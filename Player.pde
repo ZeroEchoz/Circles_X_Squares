@@ -2,7 +2,10 @@ class Player
 {
   //Global Variables
   PVector pos;
-  PVector forward;
+  PVector up;
+  PVector down;
+  PVector left;
+  PVector right;
   float theta;
   float speed = 2.0f;
 
@@ -10,7 +13,10 @@ class Player
   Player(float x, float y) {
     pos = new PVector(x, y);
     theta = 0;
-    forward = new PVector (0, -1);
+    right = new PVector (speed, 0);
+    left = new PVector (speed * -1, 0);
+    up = new PVector (0, speed * -1);
+    down = new PVector (0, speed);
   }
 
   //Functions
@@ -21,12 +27,21 @@ class Player
   }
 
   void move() {
-    forward.mult(speed);
-    forward.x = sin(theta);
-    forward.y = - cos(theta);
+    right.mult(speed);
+    right.x = sin(theta);
+    right.y = - cos(theta);
 
-    if (key == 'd' ||key == 'D') {
-      pos.add(forward);
+    if (keys[RIGHT]) {
+      pos.sub(left);
+    }
+    if (keys[LEFT]) {
+      pos.add(left);
+    }
+    if (keys[UP]) {
+      pos.add(up);
+    }
+    if (keys[DOWN]) {
+      pos.sub(up);
     }
   }
 
