@@ -4,12 +4,13 @@
 //git commit -m "Insert msg here"
 //git push
 void setup() {
+  noCursor();
   size(1000, 600);
   smooth();
   
   //Initialize
   player = new Player(200, 200);
-  turret = new Turret(200, 200);
+  cursor = new Cursor(mouseX, mouseY);
 }
 
 boolean[] keys = new boolean [2000];
@@ -24,7 +25,7 @@ void keyReleased() {
 
 //Declare
 Player player;
-Turret turret;
+Cursor cursor;
 
 
 
@@ -33,5 +34,5 @@ void draw(){
   
   //Call Functionality
   player.run();
-  turret.run();
+  cursor.run();
 }
