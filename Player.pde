@@ -8,6 +8,8 @@ class Player
   PVector right;
   float theta;
   float speed = 2.0f;
+  float shipX = 200;
+  float shipY = height * 0.5f;
 
   //Constructor
   Player(float x, float y) {
@@ -43,13 +45,18 @@ class Player
     if (keys[DOWN]) {
       pos.sub(up);
     }
+    if (keys[' ']) {
+      Bullets b = new Bullets(pos.x, pos.y);
+      b.theta = theta;
+      bullet.add(b);
+    }
   }
 
   void display() {
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(theta);
-    ellipse(200, height * 0.5f, 60, 60);
+    ellipse(shipX, shipY, 60, 60);
     popMatrix();
   }
 }
