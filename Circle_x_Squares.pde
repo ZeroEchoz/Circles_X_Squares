@@ -12,6 +12,7 @@ void setup() {
   player = new Player(200, 200);
   cursor = new Cursor(mouseX, mouseY);
   //bullets = new Bullets(200, 200);
+  turret = new Turret (200, height * 0.50);
 }
 
 ArrayList<Bullets> bullet = new ArrayList<Bullets>();
@@ -30,6 +31,7 @@ void keyReleased() {
 Player player;
 Cursor cursor;
 Bullets bullets;
+Turret turret;
 
 void draw(){
   background(0);
@@ -37,6 +39,8 @@ void draw(){
   //Call Functionality
   player.run();
   cursor.run();
+  turret.render();
+  turret.update();
   for(int i = 0 ; i <bullet.size(); i++) {
     Bullets b = bullet.get(i);
     b.render();

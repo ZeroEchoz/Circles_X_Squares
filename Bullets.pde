@@ -34,10 +34,10 @@ class Bullets
 
     pushMatrix();
     translate(pos.x, pos.y);
-    float theta = atan2(mouseY - height/2, mouseX - width/2);
+    //float theta = atan2(mouseY, mouseX);
     rotate(theta);
     ellipse(shipX, shipY, 5, 5);
-    //triangle(0 - 5, 2.5, 5, 5, 2.5, 0 - 5);
+    //triangle(0 - 5, 2.5, 5, 5, 2.5, 0 - s5);
     popMatrix();
   }
 
